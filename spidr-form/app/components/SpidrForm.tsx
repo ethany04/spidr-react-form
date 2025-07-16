@@ -32,7 +32,7 @@ const formSchema = z.object({
       "Phone number must contain only digits and be at least 10 digits"
     ),
   email: z.string().email("Please enter a valid email address"),
-  guessCost: z.string().min(1, "Please enter your cost guess"),
+  guessCost: z.string().regex(/^\$\d{1,3}(,\d{3})*(\.\d{2})?$/, "Please enter a valid dollar amount"),
   pin: z
     .string()
     .regex(
@@ -70,6 +70,18 @@ export default function SpidrForm() {
     const formatted = limited.replace(/(\d{4})(?=\d)/g, "$1-");
 
     return formatted;
+  };
+
+  const formatCentsToCurrency = (raw: string) => {
+    const number = parseInt(raw || "0", 10);
+    const float = number / 100;
+
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(float);
   };
 
   const handlePinChange = (
@@ -220,7 +232,12 @@ export default function SpidrForm() {
                           <Input
                             placeholder="$0.00"
                             className="bg-background border-input focus:border-primary focus:ring-primary"
-                            {...field}
+                            value={field.value}
+                            onChange={(e) => {
+                              const digistOnly = e.target.value.replace(/\D/g, "").slice(0,9);
+                              const formatted = formatCentsToCurrency(digistOnly);
+                              field.onChange(formatted);
+                            }}
                           />
                         </FormControl>
                         <FormMessage />

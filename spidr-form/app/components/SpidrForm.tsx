@@ -21,6 +21,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import Image from "next/image";
 
 const formSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -32,7 +33,12 @@ const formSchema = z.object({
       "Phone number must contain only digits and be at least 10 digits"
     ),
   email: z.string().email("Please enter a valid email address"),
-  guessCost: z.string().regex(/^\$\d{1,3}(,\d{3})*(\.\d{2})?$/, "Please enter a valid dollar amount"),
+  guessCost: z
+    .string()
+    .regex(
+      /^\$\d{1,3}(,\d{3})*(\.\d{2})?$/,
+      "Please enter a valid dollar amount"
+    ),
   pin: z
     .string()
     .regex(
@@ -114,8 +120,14 @@ export default function SpidrForm() {
         ) : (
           <>
             <CardHeader className="text-center relative">
-              <div className="absolute top-4 right-4 text-primary text-2xl">
-                🕷️
+              <div className="absolute top-4 right-10 md:flex hidden">
+                <Image
+                  src="/spidr-logo.png"
+                  alt="Spidr Logo"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10 object-contain"
+                />
               </div>
               <CardTitle className="text-2xl font-bold text-[#f6fdff]">
                 Air Fryer Interest Form
@@ -234,8 +246,12 @@ export default function SpidrForm() {
                             className="bg-background border-input focus:border-primary focus:ring-primary"
                             value={field.value}
                             onChange={(e) => {
-                              const digistOnly = e.target.value.replace(/\D/g, "");
-                              const formatted = formatCentsToCurrency(digistOnly);
+                              const digistOnly = e.target.value.replace(
+                                /\D/g,
+                                ""
+                              );
+                              const formatted =
+                                formatCentsToCurrency(digistOnly);
                               field.onChange(formatted);
                             }}
                           />

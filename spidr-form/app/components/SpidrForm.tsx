@@ -192,7 +192,7 @@ export default function SpidrForm() {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Enter your cost estimate"
+                        placeholder="$0.00"
                         className="bg-background border-input focus:border-primary focus:ring-primary"
                         {...field}
                       />

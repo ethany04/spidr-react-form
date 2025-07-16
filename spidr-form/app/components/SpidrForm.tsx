@@ -25,7 +25,12 @@ import { Input } from "@/components/ui/input";
 const formSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
-  phoneNumber: z.string().regex(/^\d{10,}$/, "Phone number must contain only digits and be at least 10 digits"),
+  phoneNumber: z
+    .string()
+    .regex(
+      /^\d{10,}$/,
+      "Phone number must contain only digits and be at least 10 digits"
+    ),
   email: z.string().email("Please enter a valid email address"),
   guessCost: z.string().min(1, "Please enter your cost guess"),
   pin: z
@@ -106,7 +111,7 @@ export default function SpidrForm() {
         {isSubmitted ? (
           <CardContent className="text-center py-12 text-white">
             <h1 className="text-2xl font-bold mb-4">Thank you!</h1>
-            <p>We've receied your submission and will be in touch soon.</p>
+            <p>We've received your submission and will be in touch soon.</p>
           </CardContent>
         ) : (
           <>
@@ -183,7 +188,10 @@ export default function SpidrForm() {
                               className="bg-background border-input focus:border-primary focus:ring-primary"
                               value={field.value}
                               onChange={(e) => {
-                                const digitsOnly = e.target.value.replace(/\D/g, "");
+                                const digitsOnly = e.target.value.replace(
+                                  /\D/g,
+                                  ""
+                                );
                                 field.onChange(digitsOnly);
                               }}
                             />
@@ -226,12 +234,7 @@ export default function SpidrForm() {
                           <Input
                             placeholder="$0.00"
                             className="bg-background border-input focus:border-primary focus:ring-primary"
-                            value={field.value}
-                            onChange={(e) => {
-                              const digitsOnly = e.target.value.replace(/[^\d.]/g, "");
-                              const formatted = formatCost(digitsOnly);
-                              field.onChange(formatted);
-                            }}
+                            {...field}
                           />
                         </FormControl>
                         <FormMessage />

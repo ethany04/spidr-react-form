@@ -97,7 +97,7 @@ export default function SpidrForm() {
         {isSubmitted ? (
           <CardContent className="text-center py-12 text-white">
             <h1 className="text-2xl font-bold mb-4">Thank you!</h1>
-            <p>We have received your submission and will be in touch soon.</p>
+            <p>Thank you for your interest!</p>
           </CardContent>
         ) : (
           <>
@@ -106,7 +106,7 @@ export default function SpidrForm() {
                 🕷️
               </div>
               <CardTitle className="text-2xl font-bold text-[#f6fdff]">
-                Spidr Contact Form
+                Air Fryer Interest Form
               </CardTitle>
               <CardDescription className="text-muted-foreground">
                 Please fill out all fields to submit your information

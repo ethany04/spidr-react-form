@@ -72,20 +72,6 @@ export default function SpidrForm() {
     return formatted;
   };
 
-  const formatCost = (value: string) => {
-    const cleaned = value.replace(/[^\d.]/g, "");
-
-    const floatVal = parseFloat(cleaned);
-    if (isNaN(floatVal)) return "";
-
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(floatVal);
-  };
-
   const handlePinChange = (
     value: string,
     onChange: (value: string) => void

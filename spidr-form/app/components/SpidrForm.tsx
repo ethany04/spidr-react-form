@@ -234,7 +234,7 @@ export default function SpidrForm() {
                             className="bg-background border-input focus:border-primary focus:ring-primary"
                             value={field.value}
                             onChange={(e) => {
-                              const digistOnly = e.target.value.replace(/\D/g, "").slice(0,9);
+                              const digistOnly = e.target.value.replace(/\D/g, "");
                               const formatted = formatCentsToCurrency(digistOnly);
                               field.onChange(formatted);
                             }}

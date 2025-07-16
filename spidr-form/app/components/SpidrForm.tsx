@@ -97,7 +97,7 @@ export default function SpidrForm() {
         {isSubmitted ? (
           <CardContent className="text-center py-12 text-white">
             <h1 className="text-2xl font-bold mb-4">Thank you!</h1>
-            <p>We've received your submission and will be in touch soon.</p>
+            <p>We have received your submission and will be in touch soon.</p>
           </CardContent>
         ) : (
           <>

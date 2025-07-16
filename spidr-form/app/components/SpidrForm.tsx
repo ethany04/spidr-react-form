@@ -86,10 +86,10 @@ export default function SpidrForm() {
 
   return (
     <div className="w-full max-w-2xl mx-auto p-6">
-      <Card className="border-2 border-muted bg-card/50 backdrop-blur-sm">
+      <Card className="border-2 border-[#4592a2] bg-[#28292b]/50 backdrop-blur-sm">
         <CardHeader className="text-center relative">
           <div className="absolute top-4 right-4 text-primary text-2xl">🕷️</div>
-          <CardTitle className="text-2xl font-bold text-foreground">
+          <CardTitle className="text-2xl font-bold text-[#f6fdff]">
             Spidr Contact Form
           </CardTitle>
           <CardDescription className="text-muted-foreground">
@@ -105,13 +105,13 @@ export default function SpidrForm() {
                   name="firstName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground font-medium">
+                      <FormLabel className="text-[#f6fdff] font-medium">
                         First Name
                       </FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Enter your first name"
-                          className="bg-background border-input focus:border-primary focus:ring-primary"
+                          className="bg-background border-[#4592a2] focus:border-[#4592a2] focus:ring-[#4592a2]"
                           {...field}
                         />
                       </FormControl>
@@ -124,7 +124,7 @@ export default function SpidrForm() {
                   name="lastName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground font-medium">
+                      <FormLabel className="text-[#f6fdff] font-medium">
                         Last Name
                       </FormLabel>
                       <FormControl>
@@ -146,7 +146,7 @@ export default function SpidrForm() {
                   name="phoneNumber"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground font-medium">
+                      <FormLabel className="text-[#f6fdff] font-medium">
                         Phone Number
                       </FormLabel>
                       <FormControl>
@@ -165,7 +165,7 @@ export default function SpidrForm() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground font-medium">
+                      <FormLabel className="text-[#f6fdff] font-medium">
                         Email Address
                       </FormLabel>
                       <FormControl>
@@ -187,7 +187,7 @@ export default function SpidrForm() {
                 name="guessCost"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-foreground font-medium">
+                    <FormLabel className="text-[#f6fdff] font-medium">
                       Guess the Cost
                     </FormLabel>
                     <FormControl>
@@ -207,7 +207,7 @@ export default function SpidrForm() {
                 name="pin"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-foreground font-medium">
+                    <FormLabel className="text-[#f6fdff] font-medium">
                       16-Digit PIN
                     </FormLabel>
                     <FormControl>
@@ -230,7 +230,7 @@ export default function SpidrForm() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 font-medium transition-colors"
+                  className="bg-[#4592a2] hover:bg-[#4592a2]/90 text-primary-foreground px-8 py-3 font-medium transition-colors cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>
